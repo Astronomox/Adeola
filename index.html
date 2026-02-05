@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&family=Dancing+Script:wght@400;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Cormorant Garamond', serif;
@@ -18,6 +18,17 @@
     }
     .font-dancing {
       font-family: 'Dancing Script', cursive;
+    }
+    .font-mono {
+      font-family: 'Fira Code', monospace;
+    }
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
   </style>
 <script type="importmap">
@@ -39,6 +50,42 @@
   }
 }
 </script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          keyframes: {
+            typing: {
+              "from": { width: "0" },
+              "to": { width: "100%" }
+            },
+            "blink-caret": {
+              "from, to": { "border-color": "transparent" },
+              "50%": { "border-color": "#ffc3a0" },
+            },
+            fadeInUp: {
+              'from': { opacity: '0', transform: 'translateY(20px)' },
+              'to': { opacity: '1', transform: 'translateY(0)' },
+            },
+            heartbeat: {
+              '0%': { transform: 'scale(1)', opacity: '0.8' },
+              '50%': { transform: 'scale(1.1)', opacity: '1' },
+              '100%': { transform: 'scale(1)', opacity: '0.8' },
+            }
+          },
+          animation: {
+            // Blink stops after a few times for a cleaner look
+            'typing-name': 'typing 1.2s steps(6, end) forwards, blink-caret .75s 1.2s 4',
+            'typing-short': 'typing 1.8s steps(14, end) forwards, blink-caret .75s 1.8s 4',
+            'typing-medium': 'typing 2s steps(16, end) forwards, blink-caret .75s 2s 4',
+            'typing-long': 'typing 3.5s steps(78, end) forwards, blink-caret .75s 3.5s 4',
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'heartbeat': 'heartbeat 1.5s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
 </head>
 <body class="text-stardust bg-deep-space antialiased">
   <app-root></app-root>
