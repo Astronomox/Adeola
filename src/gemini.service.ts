@@ -1,5 +1,5 @@
-import { Injectable, signal } from '@angular/core';
-import { GoogleGenAI, GenerateContentResponse, Type } from '@google/genai';
+import { Injectable, signal } from 'https://esm.sh/@angular/core@^21.1.3?external=rxjs';
+import { GoogleGenAI, GenerateContentResponse, Type } from 'https://esm.sh/@google/genai@^1.40.0?external=rxjs';
 
 // IMPORTANT: Do not use this key directly in production.
 // This is a placeholder and should be handled securely.
@@ -31,7 +31,7 @@ export class GeminiService {
     this.isGeneratingReasons.set(true);
     this.error.set(null);
 
-    const prompt = `Create a list of 12 unique, deeply personal, and heartfelt reasons why ${yourName} loves ${herName}. The reasons should be a mix of poetic, sweet, and observant, as if coming from someone who pays attention to the little things.`;
+    const prompt = `Create a list of 12 reasons of deep appreciation from ${yourName} for ${herName}. Their relationship is unique: more than friends, less than lovers. ${herName} is a focused, intelligent university student. A key aspect of their bond is that she trusts ${yourName} enough to share when she's in discomfort or feeling vulnerable. The reasons should reflect deep respect for her ambition, admiration for her mind, and immense gratitude for the trust she places in him. The tone should be supportive and understanding, not overtly romantic.`;
     
     try {
         const response: GenerateContentResponse = await this.ai.models.generateContent({
@@ -86,10 +86,10 @@ export class GeminiService {
     this.error.set(null);
 
     const fullPrompt = `
-      As a celebrated romantic poet, write a short, breathtakingly beautiful Valentine's Day poem from ${yourName} to ${herName}.
-      The poem must be heartfelt, elegant, and profoundly sincere, feeling like a whispered secret.
-      Use vivid imagery and sensory language to bring the following memory or theme to life: "${customPrompt}".
-      Focus on the deep emotion and feeling of that moment. The tone should be one of complete love and admiration.
+      Write a short, sincere, and reflective poem from ${yourName} to ${herName} about their unique and supportive connection.
+      It should not be an overt love poem, but one of deep appreciation and understanding.
+      Bring the following memory or theme to life: "${customPrompt}".
+      The tone should be one of quiet respect and gratitude, acknowledging the feeling of being a safe harbor for someone who is strong and focused.
       Do not include a title. The poem should be between 8 and 12 lines long.
     `;
 
