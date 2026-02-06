@@ -2,7 +2,6 @@ import 'https://esm.sh/@angular/compiler@^21.1.3?external=rxjs';
 import { bootstrapApplication } from 'https://esm.sh/@angular/platform-browser@^21.1.3?external=rxjs';
 import { provideZonelessChangeDetection } from 'https://esm.sh/@angular/core@^21.1.3?external=rxjs';
 import { provideHttpClient } from 'https://esm.sh/@angular/common@^21.1.3/http?external=rxjs';
-import 'https://esm.sh/process@^0.11.10/browser?external=rxjs';
 
 import { AppComponent } from './src/app.component';
 

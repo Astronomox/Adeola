@@ -1,9 +1,11 @@
 import { Injectable, signal } from 'https://esm.sh/@angular/core@^21.1.3?external=rxjs';
 import { GoogleGenAI, GenerateContentResponse, Type } from 'https://esm.sh/@google/genai@^1.40.0?external=rxjs';
 
-// IMPORTANT: Do not use this key directly in production.
-// This is a placeholder and should be handled securely.
-const FAKE_API_KEY = 'YOUR_API_KEY_HERE';
+// --- IMPORTANT ---
+// PASTE YOUR GOOGLE AI API KEY HERE
+// To get a key, visit https://makersuite.google.com/
+const API_KEY = 'YOUR_API_KEY_HERE';
+// --- IMPORTANT ---
 
 @Injectable({
   providedIn: 'root',
@@ -17,13 +19,13 @@ export class GeminiService {
   error = signal<string | null>(null);
 
   constructor() {
-    // In a real app, process.env.API_KEY would be set in the environment.
-    // For this applet, we will use a placeholder and show an alert if it's not replaced.
-    const apiKey = (process.env as any).API_KEY || FAKE_API_KEY;
-    if (apiKey === FAKE_API_KEY) {
-       console.warn('Using placeholder API Key for Gemini Service. Please replace it with your actual key.');
+    if (API_KEY === 'YOUR_API_KEY_HERE') {
+       const errorMessage = 'API Key not configured. Please add your key to src/gemini.service.ts.';
+       console.error(errorMessage);
+       this.error.set(errorMessage);
+       return;
     }
-    this.ai = new GoogleGenAI({ apiKey });
+    this.ai = new GoogleGenAI({ apiKey: API_KEY });
   }
   
   async generateReasons(herName: string, yourName: string): Promise<void> {
