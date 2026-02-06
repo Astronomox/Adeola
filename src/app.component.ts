@@ -17,29 +17,32 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   // --- PERSONALIZATION ---
   readonly HER_NAME = "Adeola";
   readonly YOUR_NAME = "Adeola";
-
-  readonly reasons = signal<string[]>([
-    "Your smile lights up my darkest days.",
-    "The way you laugh at my terrible jokes.",
-    "Your kindness inspires me to be a better person.",
-    "How you're passionate about your dreams.",
-    "The way your eyes sparkle when you're excited.",
-    "How you make even ordinary days feel special.",
-    "Your incredible intelligence and wit.",
-    "How you believe in me, even when I don't.",
-    "The comfort of just being with you.",
-    "Your strength and resilience.",
-    "The way you care for everyone around you.",
-    "For being my greatest adventure and my calmest harbor."
-  ]);
   // --- END PERSONALIZATION ---
 
+  readonly photos = signal<string[]>([
+    "https://picsum.photos/id/1011/800/600",
+    "https://picsum.photos/id/1025/800/600",
+    "https://picsum.photos/id/10/800/600",
+    "https://picsum.photos/id/20/800/600",
+    "https://picsum.photos/id/30/800/600",
+    "https://picsum.photos/id/45/800/600"
+  ]);
+
+  selectedPhoto = signal<string | null>(null);
   poemPrompt = signal<string>("our first coffee date");
   view = signal<'intro' | 'main'>('intro');
   poemStream = signal<string>('');
   
   beginExperience() {
     this.view.set('main');
+    this.geminiService.generateReasons(this.HER_NAME, this.YOUR_NAME);
+  }
+
+  selectPhoto(photoUrl: string) {
+    this.selectedPhoto.set(photoUrl);
+  }
+  deselectPhoto() {
+    this.selectedPhoto.set(null);
   }
 
   async generatePoem() {
