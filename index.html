@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Adeola ❤️ Sailor Song</title>
+    <meta name="description" content="A cinematic Valentine's love letter for Adeola, set to Sailor Song by Gigi Perez">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@200;300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Canvases -->
+    <canvas id="starCanvas"></canvas>
+    <canvas id="oceanCanvas"></canvas>
+
+    <!-- Ambient Overlay -->
+    <div class="ambient-overlay"></div>
+
+    <!-- Moon -->
+    <div class="moon" id="moon">
+        <div class="moon-glow"></div>
+        <div class="moon-body"></div>
+    </div>
+
+    <!-- Shooting Stars -->
+    <div class="shooting-stars">
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+    </div>
+
+    <!-- Music Player (Spotify Embed) -->
+    <div class="music-widget" id="musicWidget">
+        <button class="music-toggle" id="musicToggle" aria-label="Toggle music player">
+            <svg class="music-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 18V5l12-2v13" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="16" r="3" />
+            </svg>
+            <span class="music-label">Our Song</span>
+        </button>
+        <div class="spotify-embed hidden" id="spotifyEmbed">
+            <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/track/2262bWmqomIaJXwCRHr13j?utm_source=generator&theme=0"
+                width="300" height="152" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+        </div>
+        <span>scroll down</span>
+    </div>
+
+    <!-- ========== SECTIONS ========== -->
+    <main class="main-content">
+
+        <!-- 1. HERO — Full-screen intro -->
+        <section class="section hero-section" id="hero">
+            <div class="hero-content">
+                <div class="hero-pre-title">a love letter for</div>
+                <h1 class="hero-title">
+                    <span class="title-line line-1">Adeola</span>
+                </h1>
+                <div class="hero-divider">
+                    <svg viewBox="0 0 200 20" class="wave-divider">
+                        <path d="M0,10 Q25,0 50,10 Q75,20 100,10 Q125,0 150,10 Q175,20 200,10"
+                            stroke="rgba(255,200,150,0.6)" fill="none" stroke-width="1.5" />
+                    </svg>
+                </div>
+                <p class="hero-subtitle">
+                    <em>"Won't you kiss me on the mouth and love me like a sailor?"</em>
+                </p>
+                <p class="hero-date">Valentine's Day 2026</p>
+            </div>
+        </section>
+
+        <!-- 2. THE LETTER -->
+        <section class="section letter-section" id="letter">
+            <div class="section-inner">
+                <div class="letter-card">
+                    <div class="letter-seal">
+                        <svg viewBox="0 0 60 60">
+                            <defs>
+                                <radialGradient id="sealGrad" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" style="stop-color:#e8a87c;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+                                </radialGradient>
+                            </defs>
+                            <circle cx="30" cy="30" r="28" fill="url(#sealGrad)" stroke="#8b1a1a" stroke-width="1" />
+                            <path
+                                d="M30,45 C30,45 15,33 15,24 C15,19 19,15 23.5,15 C26,15 28.5,17 30,19.5 C31.5,17 34,15 36.5,15 C41,15 45,19 45,24 C45,33 30,45 30,45 Z"
+                                fill="#fff3" stroke="#fff6" stroke-width="0.5" />
+                        </svg>
+                    </div>
+                    <h2 class="letter-greeting">My Dearest Adeola,</h2>
+                    <div class="letter-body">
+                        <p class="letter-line reveal-line">
+                            There's this song that plays on repeat in my head whenever I think of you.
+                            Every lyric, every note — it's you. It's us.
+                        </p>
+                        <p class="letter-line reveal-line">
+                            You walked into my world like moonlight breaking through storm clouds —
+                            quiet, effortless, and impossibly beautiful. And nothing has been the same since.
+                        </p>
+                        <p class="letter-line reveal-line">
+                            I don't have the poet's perfect words. But I have this:
+                            you are the first thing I want to see in the morning and the last
+                            thought that pulls me into sleep. You are the calm in my chaos,
+                            the warmth in my winter, the song I never want to end.
+                        </p>
+                        <p class="letter-line reveal-line">
+                            So this Valentine's Day, I'm not just saying "I love you" —
+                            I'm saying <strong>you are my forever</strong>. And I'd cross every ocean
+                            to prove it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. LYRICS SECTION — Sailor Song -->
+        <section class="section lyrics-section" id="lyrics">
+            <div class="section-inner">
+                <h2 class="section-heading">Our Song</h2>
+                <p class="section-subheading">Sailor Song — Gigi Perez</p>
+                <div class="lyrics-container">
+                    <div class="lyric-block reveal-line">
+                        <p class="lyric-line accent">"Oh, won't you kiss me on the mouth</p>
+                        <p class="lyric-line accent">and love me like a sailor?"</p>
+                    </div>
+                    <div class="lyric-block reveal-line">
+                        <p class="lyric-line">"And when you get a taste,</p>
+                        <p class="lyric-line">can you tell me, what's my flavor?"</p>
+                    </div>
+                    <div class="lyric-block reveal-line">
+                        <p class="lyric-line">"I don't believe in God,</p>
+                        <p class="lyric-line">but I believe that you're my savior"</p>
+                    </div>
+                    <div class="lyric-block reveal-line">
+                        <p class="lyric-line soft">"I sleep so I can see you</p>
+                        <p class="lyric-line soft">'cause I hate to wait so long..."</p>
+                    </div>
+                </div>
+                <div class="lyrics-annotation reveal-line">
+                    <p>Every word of this song reminds me of you. <br>This is what my heart sounds like.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. WHY I LOVE YOU -->
+        <section class="section reasons-section" id="reasons">
+            <div class="section-inner">
+                <h2 class="section-heading">Why I'm Yours</h2>
+                <div class="reasons-grid">
+                    <div class="reason-card reveal-line" style="--delay: 0.1s">
+                        <div class="reason-number">01</div>
+                        <div class="reason-content">
+                            <h3>Your Voice</h3>
+                            <p>It could calm a raging sea. When you speak, the whole world drops to a whisper just to
+                                listen.</p>
+                        </div>
+                    </div>
+                    <div class="reason-card reveal-line" style="--delay: 0.2s">
+                        <div class="reason-number">02</div>
+                        <div class="reason-content">
+                            <h3>Your Fire</h3>
+                            <p>You don't just light up a room — you set it ablaze. Your passion is magnetic, untameable,
+                                beautiful.</p>
+                        </div>
+                    </div>
+                    <div class="reason-card reveal-line" style="--delay: 0.3s">
+                        <div class="reason-number">03</div>
+                        <div class="reason-content">
+                            <h3>Your Softness</h3>
+                            <p>Underneath all that strength is the gentlest soul I've ever known. You make vulnerability
+                                feel like power.</p>
+                        </div>
+                    </div>
+                    <div class="reason-card reveal-line" style="--delay: 0.4s">
+                        <div class="reason-number">04</div>
+                        <div class="reason-content">
+                            <h3>Your Laugh</h3>
+                            <p>It's my favourite sound in a world full of noise. I'd do anything to hear it one more
+                                time.</p>
+                        </div>
+                    </div>
+                    <div class="reason-card reveal-line" style="--delay: 0.5s">
+                        <div class="reason-number">05</div>
+                        <div class="reason-content">
+                            <h3>Your Eyes</h3>
+                            <p>They hold galaxies. Every time you look at me, I fall all over again — deeper, harder,
+                                willingly.</p>
+                        </div>
+                    </div>
+                    <div class="reason-card reveal-line" style="--delay: 0.6s">
+                        <div class="reason-number">06</div>
+                        <div class="reason-content">
+                            <h3>Simply You</h3>
+                            <p>Not a version, not a performance. Just you — raw, real, and perfect. That's who I'm in
+                                love with.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. THE PROMISE -->
+        <section class="section promise-section" id="promise">
+            <div class="section-inner">
+                <div class="promise-card">
+                    <h2 class="promise-title reveal-line">A Promise</h2>
+                    <div class="promise-content">
+                        <p class="promise-text reveal-line">
+                            I promise to love you on the quiet days when the world feels heavy.
+                            I promise to choose you — again and again — in every timeline, every universe.
+                        </p>
+                        <p class="promise-text reveal-line">
+                            I promise to be your anchor when the tides pull hard,
+                            and your wind when you need to fly.
+                        </p>
+                        <p class="promise-text reveal-line">
+                            I promise to never stop writing you love letters,
+                            even when my words run dry — because you deserve to know,
+                            every single day, that you are <em>fiercely</em> and
+                            <em>unapologetically</em> loved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. INTERACTIVE HEART -->
+        <section class="section interactive-section" id="interactive">
+            <div class="section-inner">
+                <p class="tap-prompt reveal-line">Tap the compass to reveal a secret</p>
+                <button class="compass-button" id="compassButton" aria-label="Reveal secret message">
+                    <svg class="compass-svg" viewBox="0 0 120 120">
+                        <defs>
+                            <linearGradient id="compassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#e8a87c" />
+                                <stop offset="100%" style="stop-color:#d4a574" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="60" cy="60" r="55" fill="none" stroke="rgba(232,168,124,0.3)" stroke-width="1" />
+                        <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(232,168,124,0.6)" stroke-width="0.5" />
+                        <!-- Cardinal Points -->
+                        <text x="60" y="18" fill="#e8a87c" font-size="10" text-anchor="middle"
+                            font-family="Outfit">N</text>
+                        <text x="60" y="110" fill="#e8a87c" font-size="10" text-anchor="middle"
+                            font-family="Outfit">S</text>
+                        <text x="10" y="64" fill="#e8a87c" font-size="10" text-anchor="middle"
+                            font-family="Outfit">W</text>
+                        <text x="110" y="64" fill="#e8a87c" font-size="10" text-anchor="middle"
+                            font-family="Outfit">E</text>
+                        <!-- Compass Needle -->
+                        <g class="compass-needle" transform-origin="60 60">
+                            <polygon points="60,20 55,60 60,55 65,60" fill="#c0392b" opacity="0.9" />
+                            <polygon points="60,100 55,60 60,65 65,60" fill="#bdc3c7" opacity="0.6" />
+                        </g>
+                        <circle cx="60" cy="60" r="4" fill="#e8a87c" />
+                    </svg>
+                </button>
+                <div class="secret-reveal hidden" id="secretReveal">
+                    <p class="secret-text">
+                        Adeola, you are the love of my life.<br>
+                        Will you be my Valentine — today, tomorrow, and always?<br>
+                        <span class="secret-signature">Forever & always yours ⚓</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. FINALE -->
+        <section class="section finale-section" id="finale">
+            <div class="section-inner">
+                <div class="finale-content">
+                    <h2 class="finale-title">Happy Valentine's Day</h2>
+                    <p class="finale-name">Adeola</p>
+                    <div class="finale-heart">
+                        <svg viewBox="0 0 100 100">
+                            <path
+                                d="M50,88 C50,88 12,60 12,35 C12,20 22,12 33,12 C40,12 47,16 50,22 C53,16 60,12 67,12 C78,12 88,20 88,35 C88,60 50,88 50,88 Z"
+                                fill="none" stroke="rgba(232,168,124,0.8)" stroke-width="1" class="heart-draw" />
+                        </svg>
+                    </div>
+                    <p class="finale-quote">
+                        <em>"I sleep so I can see you, 'cause I hate to wait so long."</em>
+                    </p>
+                    <div class="finale-signature">
+                        <p>With all the love in every ocean,</p>
+                        <p class="signature-cursive">Your Sailor ⚓</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
